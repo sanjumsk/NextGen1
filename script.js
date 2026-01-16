@@ -61,3 +61,8 @@ function signup(){
   });
 
 }
+
+function goToLogin(){
+  window.location.href = "login.html"; // login page file name
+}
+
