@@ -1,4 +1,4 @@
-const API_URL = "https://script.google.com/macros/s/AKfycby09ZLbXDCp3ZjU1BS2c0sLWaHJnXKt16DKtih2N-kIJ5qrAVEfo6fhXbPvHkQGWDg9/exec"; // Apps Script Web App URL
+const API_URL = "https://script.google.com/macros/s/AKfycbxnlJZJyZrU-ydg921ZQlcN4rBAG3o5DF3CMZYEhSEb2r6hGLEhBIOfyfq0T0u9RQ7K/exec"; // Apps Script Web App URL
 
 const signupBtn = document.getElementById('signupBtn');
 const msg = document.getElementById('msg');
