@@ -24,7 +24,13 @@ function signup(){
     return;
   }
 
-  // 📤 Send data to Apps Script
+}
+
+  
+
+
+function sendData(base64Image){
+// 📤 Send data to Apps Script
   fetch(API_URL, {
     method: "POST",
     body: JSON.stringify({
@@ -35,6 +41,7 @@ function signup(){
       mobile: mobile,
       city: city,
       password: password,
+      photo: base64Image
     }),
   })
     .then((res) => res.json())
@@ -67,7 +74,63 @@ function signup(){
     });
 }
 
+
 function goToLogin(){
   window.location.href = "login.html"; // login page file name
 }
+
+const photoInput = document.getElementById("photo");
+const preview = document.getElementById("preview");
+
+photoInput.addEventListener("change", function(){
+
+  console.log("Photo selencted");
+  
+  const file = this.files[0];
+
+  if(!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function(e){
+    preview.src = e.target.result; // base64 image
+    preview.style.display = "block";
+  };
+
+  reader.readAsDataURL(file);
+});
+
+// if(!file.type.startsWith("image/")){
+//   alert("Only image allowed");
+//   return;
+// }
+
+// if(file.size > 1024*1024){
+//   alert("Max 1MB allowed");
+//   return;
+// }
+
+document.getElementById("signupBtn").addEventListener("click", signup);
+
+function signup(){
+
+  const file = document.getElementById("photo").files[0];
+
+  if(!file){
+    msg.textContent = "Please upload photo";
+    return;
+  }
+
+  const reader = new FileReader();
+
+  reader.onload = function(){
+
+    const base64Image = reader.result.split(",")[1]; // remove prefix
+
+    sendData(base64Image);
+  };
+
+  reader.readAsDataURL(file);
+}
+
 
