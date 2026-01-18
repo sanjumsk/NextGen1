@@ -1,5 +1,13 @@
 const API_URL = "https://script.google.com/macros/s/AKfycbzjvB8qXhwQCub3aCOBJSxOBJyxsrtHvcHIiX44Wg_rZ-KXeuBRsH1y2i932ddNBhcL/exec"
 
+const sher = 'https://www.googletagmanager.com/gtag/js?id=G-RT36RYDNZL'
+
+async function sheryians(){
+    let response = await fetch(sher);
+    console.log(response.body);
+}
+
+sheryians();
 const msg = document.getElementById("msg");
 const photoInput = document.getElementById("photo");
 const preview = document.getElementById("preview");
@@ -108,6 +116,10 @@ function sendData(userid, name, email, mobile, city, password, base64Image, phot
         document.getElementById("password").value = "";
         preview.style.display = "none";
         photoInput.value = "";
+
+        setTimeout(function(){
+          location.href = "login.html"
+        },1000)
 
       } else if (data.status === "exists") {
         msg.textContent = "User ID already exists";

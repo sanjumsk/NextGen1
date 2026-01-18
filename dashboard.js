@@ -6,13 +6,18 @@ if(!user){
 
 console.log(user);
 
-document.getElementById("photo").src = user.photo;
-document.getElementById("photo").src = "https://unsplash.com/photos/two-smiling-women-in-a-park-vBUGdI7JAvc";
+// document.getElementById("photo").src = user.photo;
 document.getElementById("name").innerText = "Name: " + user.name;
 document.getElementById("email").innerText = "Email: " + user.email;
 document.getElementById("city").innerText = "City: " + user.city;
+
+document.getElementById("photo").src =`https://drive.google.com/thumbnail?id=${user.photo_id}&sz=s800`;
+
+
 
 function logout(){
   localStorage.removeItem("user");
   location.href = "login.html";
 }
+
+
