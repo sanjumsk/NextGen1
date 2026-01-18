@@ -38,7 +38,9 @@ function login(){
       msg.classList.add("success");
 
       // 👉 redirect to dashboard
-      // location.href = "dashboard.html";
+      setTimeout(()=>{
+        location.href = "dashboard.html";
+      },1000);
 
     }else{
       msg.textContent = "Invalid User ID or Password";
@@ -53,3 +55,4 @@ function login(){
   });
 
 }
+
